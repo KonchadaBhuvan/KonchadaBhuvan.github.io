@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ mood.capitalize() }} Playlist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ mood.capitalize() }} Playlist</h1>
+
+        {% if songs %}
+            <ul class="playlist">
+            {% for song in songs %}
+                <li>
+                    <strong>{{ song.title }}</strong><br>
+                    <em>by {{ song.artist }}</em><br>
+                    <a href="{{ song.link }}" target="_blank">🎵 Listen on Spotify</a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No songs found for this mood.</p>
+        {% endif %}
+
+        <a class="back-link" href="/">🔙 Back</a>
+    </div>
+</body>
+</html>

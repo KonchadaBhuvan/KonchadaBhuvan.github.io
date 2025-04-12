@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mood Playlist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎧 Select Your Mood 🎶</h1>
+        <form action="/playlist" method="post">
+            <select name="mood" required>
+                <option value="" disabled selected>Select a mood</option>
+                <option value="happy">😊 Happy</option>
+                <option value="sad">😢 Sad</option>
+                <option value="energetic">🔥 Energetic</option>
+                <option value="relaxed">😌 Relaxed</option>
+            </select>
+            <br><br>
+            <button type="submit">Show Playlist</button>
+        </form>
+    </div>
+</body>
+</html>
