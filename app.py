@@ -1,11 +1,14 @@
 from flask import Flask, render_template, request
 from pymongo import MongoClient
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 import os
+uri = "mongodb+srv://konchadabhuvan22csm:<db_password>@cluster0.to0pp1g.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+# Create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi('1'))
+
 app = Flask(__name__)
 
-# Connect to local MongoDB
-uri = "mongodb+srv://konchadabhuvan22csm:<root>@cluster0.to0pp1g.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-client = MongoClient(os.environ.get("MONGODB_URI"))
 db = client["mood_playlist_db"]
 collection = db["playlists"]
 
